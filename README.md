@@ -1,1 +1,0 @@
-Bake sale Responsive Page
