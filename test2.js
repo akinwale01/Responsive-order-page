@@ -36,6 +36,11 @@ document.addEventListener("DOMContentLoaded", () => {
             counterContainer.style.display = 'flex';
             counterDisplay.textContent = count;
             loadDisplay.style.display ='none'
+
+                // Add the brown border to the product image
+    const productImage = cartButton.closest('article').querySelector('.product');
+    productImage.classList.add('brown-border');
+
             updateCartSummary();
 
         });
@@ -56,6 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 cart[itemName].quantity = count;
                 totalItems--;
                 counterDisplay.textContent = count;
+
             } else {
                 delete cart[itemName];
                 count = 0;
@@ -64,10 +70,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Reset UI state
                 counterContainer.style.display = 'none';
                 cartButton.style.display = 'inline';
+                const productImage = minusButton.closest('article').querySelector('.product');
+                productImage.classList.remove('brown-border')
 
                 if (Object.keys(cart).length === 0) {
                     loadDisplay.style.display = 'block';
                     cartDetails.style.display = 'none';
+
                 }
 
             }
@@ -141,14 +150,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Remove button with event listener
                 const removeButton = document.createElement('button');
                 const removeImage = document.createElement('img');
-                removeImage.src = 'icon-remove-item.svg';
+                removeImage.src = '/projects/product-list/icon-remove-item.svg';
                 removeImage.alt = 'Remove Item';
                 removeButton.appendChild(removeImage);
 
                 removeButton.addEventListener('click', () => {
-                    removeCartItem(item.name); // Remove item from cart
+                    removeCartItem(item.name);
+
+                     // Remove item from cart
                     updateCartSummary(); // Update the cart summary
                 });
+
 
                 // Append elements to cart item div
                 cartItemDiv.appendChild(itemInfo);
@@ -171,27 +183,32 @@ document.addEventListener("DOMContentLoaded", () => {
             totalItems -= cart[itemName].quantity;
             delete cart[itemName];
             updateCartSummary();
-
+    
             // Reset "Add to Cart" button and counter for the removed item
             document.querySelectorAll('.grid-item').forEach((item) => {
                 if (item.getAttribute('data-name') === itemName) {
                     const cartButton = item.querySelector('.cartButton');
                     const counterContainer = item.querySelector('.counterContainer');
                     const counterDisplay = item.querySelector('.counterDisplay');
-
+                    const productImage = item.querySelector('.product'); // Find the product image
+    
                     cartButton.style.display = 'inline';
                     counterContainer.style.display = 'none';
                     counterDisplay.textContent = '1'; // Reset counter display
+    
+                    // Remove the border from the product image
+                    if (productImage) {
+                        productImage.classList.remove('brown-border');
+                    }
                 }
             });
         }
-
-        // If cart is empty, show the default message
+    
+        // If the cart is empty, show the default message
         if (Object.keys(cart).length === 0) {
             loadDisplay.style.display = 'block';
             cartDetails.style.display = 'none';
             cartSummary.classList.remove('has-items');
-
         }
     }
 });
