@@ -13,10 +13,9 @@
     </header>
 
     <!-- Document Landmark: Main -->
-    <main role="main">
+    <main>
         <!-- Landmark: Cart Summary -->
         <section class="cart-summary box" id="cartSummary" aria-labelledby="cartTitle">
-            <h2 id="cartTitle">Cart Summary</h2>
             <div class="loadDisplay">
                 <p id="emptyCartMessage" class="nice">
                     Your Cart <span class="number">(0)</span>
@@ -41,10 +40,10 @@
         </section>
 
         <!-- Landmark: Dialog for Order Confirmation -->
-        <div class="overlay" id="overlay" role="dialog" aria-labelledby="confirmationTitle" aria-hidden="true">
+        <div class="overlay" id="overlay" role="dialog" aria-labelledby="confirmationTitle" aria-hidden="true"></div>
             <div class="order-confirmation" id="orderConfirmation">
-                <h2 id="confirmationTitle">Order Confirmed</h2>
                 <img src="icon-order-confirmed.svg" alt="Order confirmed checkmark" id="ticked">
+                <h2 id="confirmationTitle">Order Confirmed</h2>
                 <p id="word">We hope you enjoy your food!</p>
                 <div id="orderDetails"></div>
                 <p>
@@ -53,12 +52,10 @@
                 </p>
                 <button id="newOrder">Start New Order</button>
             </div>
-        </div>
+        
 
         <!-- Landmark: Product Grid -->
         <section class="grid-container" aria-labelledby="productGridTitle">
-            <h2 id="productGridTitle">Products</h2>
-
             <!-- Product 1: Waffle & Berries -->
             <article class="grid-item" data-name="Waffle & Berries" data-price="6.50">
                 <img src="image-waffle-desktop.jpg" alt="Waffle & Berries" class="product">
