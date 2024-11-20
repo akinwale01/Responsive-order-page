@@ -6,6 +6,10 @@ letter-spacing: -1px;
 overflow-x: hidden;
 }
 
+#productGridTitle{
+    display: none;
+}
+
 h1{
 color: rgb(97, 9, 9);
 margin: 10px 20px;
