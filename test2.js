@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Remove button with event listener
                 const removeButton = document.createElement('button');
                 const removeImage = document.createElement('img');
-                removeImage.src = '/projects/product-list/icon-remove-item.svg';
+                removeImage.src = '/icon-remove-item.svg';
                 removeImage.alt = 'Remove Item';
                 removeButton.appendChild(removeImage);
 
