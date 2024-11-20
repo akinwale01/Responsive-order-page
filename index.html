@@ -4,268 +4,254 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bake Sale</title>
-<link rel="stylesheet" href="test2.css">
-
+    <link rel="stylesheet" href="test2.css">
 </head>
 <body>
+    <!-- Document Landmark: Banner -->
+    <header role="banner">
+        <h1>Dessert</h1>
+    </header>
 
-    <header>
-    <h1>Dessert</h1>
-</header>
-
-    <main>
-    <!-- Updated Cart Summary -->
-    <section class="cart-summary box" id="cartSummary">
-        <div class="loadDisplay">
-            <p id="emptyCartMessage" class="nice">Your Cart <span class="number">(0)</span></p>
-
-            <img src="illustration-empty-cart.svg" alt="">
-            <p class="high">Your added items will appear here</p>
-        </div>
+    <!-- Document Landmark: Main -->
+    <main role="main">
+        <!-- Landmark: Cart Summary -->
+        <section class="cart-summary box" id="cartSummary" aria-labelledby="cartTitle">
+            <h2 id="cartTitle">Cart Summary</h2>
+            <div class="loadDisplay">
+                <p id="emptyCartMessage" class="nice">
+                    Your Cart <span class="number">(0)</span>
+                </p>
+                <img src="illustration-empty-cart.svg" alt="Empty cart illustration">
+                <p class="high">Your added items will appear here</p>
+            </div>
 
             <div id="cartDetails">
-                <p class="nice" id="detail">Your Cart (<span id="cartCount" class="number">0</span>)</p>
-            <div id="cartItems"></div>
-            <div><span id="total">Order Total :</span> <span id="orderTotal">$0.00</span></div>
-
-            <img src="icon-carbon-neutral.svg" alt="carbon neutral" id="carbon"><span class="carbon">This is a carbon-neutral delivery</span>
+                <p class="nice" id="detail">
+                    Your Cart (<span id="cartCount" class="number">0</span>)
+                </p>
+                <div id="cartItems"></div>
+                <div>
+                    <span id="total">Order Total:</span> 
+                    <span id="orderTotal">$0.00</span>
+                </div>
+                <img src="icon-carbon-neutral.svg" alt="Carbon neutral icon" id="carbon">
+                <span class="carbon">This is a carbon-neutral delivery</span>
                 <button id="confirmOrder">Confirm Order</button>
+            </div>
+        </section>
+
+        <!-- Landmark: Dialog for Order Confirmation -->
+        <div class="overlay" id="overlay" role="dialog" aria-labelledby="confirmationTitle" aria-hidden="true">
+            <div class="order-confirmation" id="orderConfirmation">
+                <h2 id="confirmationTitle">Order Confirmed</h2>
+                <img src="icon-order-confirmed.svg" alt="Order confirmed checkmark" id="ticked">
+                <p id="word">We hope you enjoy your food!</p>
+                <div id="orderDetails"></div>
+                <p>
+                    <span id="ordeal">Order Total:</span> 
+                    <span id="totalPrice">$0.00</span>
+                </p>
+                <button id="newOrder">Start New Order</button>
+            </div>
         </div>
-    </section>
 
-    <!-- Order Confirmation -->
-    <div class="overlay" id="overlay" role="dialog"></div>
-    <div class="order-confirmation" id="orderConfirmation">
-        <img src="icon-order-confirmed.svg" alt="" id="ticked">
-        <h2>Order Confirmed</h2>
-        <p id="word">We hope you enjoy your food!</p>
-        <div id="orderDetails"></div>
-        <p><span id="ordeal">Order Total: </span><span id="totalPrice">0.00</span></p>
-        <button id="newOrder">Start New Order</button>
-    </div>
-
-    <section class="grid-container">
-
-        <article class="grid-item" data-name="Waffle & Berries" data-price="6.50">
-
-            <img src="image-waffle-desktop.jpg" alt="" class="product">
-
-            <button class="cartButton"><img src="icon-add-to-cart.svg" alt="" class="addToCart"><span class="tap">Add to Cart</span></button>
-
-            <div class="counterContainer">
-
-                <button class="minusButton"><img src="icon-decrement-quantity.svg" alt="" class="but"></button>
-
-                <span class="counterDisplay">1</span>
-
-                <button class="plusButton"><img src="icon-increment-quantity.svg" alt="" class="tub"></button>
-
-            </div>
-
-            <p class="dim">Waffle</p>
-
-            <p class="names">Waffle with berries</p>
-
-            <p class="amount">$6.50</p>
-
-        </article>
-
-        <article class="grid-item" data-name="Creme-Brulee" data-price="7.00">
-
-            <img src="image-creme-brulee-desktop.jpg" alt="Creme Brulee" class="product">
-
-            <button class="cartButton"><img src="icon-add-to-cart.svg" alt="" class="addToCart"><span class="tap">Add to Cart</span></button>
-
-            <div class="counterContainer">
-
-                <button class="minusButton"><img src="icon-decrement-quantity.svg" alt="" class="but"></button>
-
-                <span class="counterDisplay">1</span>
-
-                <button class="plusButton"><img src="icon-increment-quantity.svg" alt="" class="tub"></button>
-
-            </div>
-
-            <p class="dim">Creme Brulee</p>
-
-            <p class="names">Vanilla Bean Creme Brulee</p>
-
-            <p class="amount">$7.00</p>
-
-        </article>
-
-        <article class="grid-item" data-name="Macaron-Mix" data-price="8.00">
-
-            <img src="image-macaron-desktop.jpg" alt="Macaron" class="product">
-
-            <button class="cartButton"><img src="icon-add-to-cart.svg" alt="" class="addToCart"><span class="tap">Add to Cart</span></button>
-
-            <div class="counterContainer">
-                <button class="minusButton"><img src="icon-decrement-quantity.svg" alt="" class="but"></button>
-
-                <span class="counterDisplay">1</span>
-
-                <button class="plusButton"><img src="icon-increment-quantity.svg" alt="" class="tub"></button>
-
-            </div>
-
-            <p class="dim">Macaron</p>
-
-            <p class="names">Macaron Mix Of Five</p>
-
-            <p class="amount">$8.00</p>
-
-        </article>
-
-        <article class="grid-item"data-name="Tiramisu" data-price="5.50">
-
-            <img src="image-tiramisu-desktop.jpg" alt="Tiramisu"  class="product">
-
-            <button class="cartButton"><img src="icon-add-to-cart.svg" alt="" class="addToCart"><span class="tap">Add to Cart</span></button>
-
-            <div class="counterContainer">
-
-                <button class="minusButton"><img src="icon-decrement-quantity.svg" alt="" class="but"></button>
-
-
-                <span class="counterDisplay">1</span>
-
-                <button class="plusButton"><img src="icon-increment-quantity.svg" alt="" class="tub"></button>
-
-            </div>
-
-            <p class="dim">Tiramisu</p>
-
-            <p class="names">Classic Tiramisu</p>
-
-            <p class="amount">$5.50</p>
-
-        </article>
-
-        <article class="grid-item" data-name="Baklava" data-price="6.50">
-
-            <img src="/image-baklava-desktop.jpg" alt="Baklava"  class="product">
-
-            <button class="cartButton"><img src="icon-add-to-cart.svg" alt="" class="addToCart"><span class="tap">Add to Cart</span></button>
-
-            <div class="counterContainer">
-
-                <button class="minusButton"><img src="icon-decrement-quantity.svg" alt="" class="but"></button>
-
-                <span class="counterDisplay">1</span>
-
-                <button class="plusButton"><img src="icon-increment-quantity.svg" alt="" class="tub"></button>
-
-            </div>
-
-            <p class="dim">Baklava</p>
-
-            <p class="names">Pistachio Baklava</p>
-
-            <p class="amount">$6.50</p>
-
-        </article>
-
-        <article class="grid-item" data-name="Lemon Pie" data-price="5.00">
-
-            <img src="image-meringue-desktop.jpg" alt="Lemon Pie" class="product">
-
-            <button class="cartButton"><img src="icon-add-to-cart.svg" alt="" class="addToCart"><span class="tap">Add to Cart</span></button>
-
-            <div class="counterContainer">
-
-                <button class="minusButton"><img src="icon-decrement-quantity.svg" alt="" class="but"></button>
-
-                <span class="counterDisplay">1</span>
-
-                <button class="plusButton"><img src="icon-increment-quantity.svg" alt="" class="tub"></button>
-
-            </div>
-
-            <p class="dim">Pie</p>
-
-            <p class="names">Lemon Meringue Pie</p>
-
-            <p class="amount">$6.50</p>
-
-        </article>
-
-        <article class="grid-item" data-name="Velvet Cake" data-price="8.50">
-
-            <img src="image-cake-desktop.jpg" alt="Velvet Cake" class="product">
-
-            <button class="cartButton"><img src="icon-add-to-cart.svg" alt="" class="addToCart"><span class="tap">Add to Cart</span></button>
-
-            <div class="counterContainer">
-
-                <button class="minusButton"><img src="icon-decrement-quantity.svg" alt="" class="but"></button>
-
-                <span class="counterDisplay">1</span>
-
-                <button class="plusButton"><img src="icon-increment-quantity.svg" alt="" class="tub"></button>
-
-            </div>
-
-            <p class="dim">Cake</p>
-
-            <p class="names">Red Velvet Cake</p>
-
-            <p class="amount">$8.50</p>
-
-        </article>
-
-        <article class="grid-item" data-name="Salted-Brownie" data-price="5.50">
-
-            <img src="image-brownie-desktop.jpg" alt="Brownie" class="product"">
-
-            <button class="cartButton"><img src="icon-add-to-cart.svg" alt="" class="addToCart"><span class="tap">Add to Cart</span></button>
-
-            <div class="counterContainer">
-
-                <button class="minusButton"><img src="icon-decrement-quantity.svg" alt="" class="but"></button>
-
-                <span class="counterDisplay">1</span>
-
-                <button class="plusButton"><img src="icon-increment-quantity.svg" alt="" class="tub"></button>
-
-            </div>
-
-            <p class="dim">Brownie</p>
-
-            <p class="names">Salted Caramel Brownie</p>
-
-            <p class="amount">$5.50</p>
-
-        </article>
-
-        <article class="grid-item" data-name="Panna Cotta" data-price="6.50">
-
-            <img src="image-panna-cotta-desktop.jpg" alt="Panna Cotta" class="product"">
-
-            <button class="cartButton"><img src="icon-add-to-cart.svg" alt="" class="addToCart"><span class="tap">Add to Cart</span></button>
-
-            <div class="counterContainer">
-
-                <button class="minusButton"><img src="icon-decrement-quantity.svg" alt="" class="but"></button>
-
-                <span class="counterDisplay">1</span>
-
-                <button class="plusButton"><img src="icon-increment-quantity.svg" alt="" class="tub"></button>
-
-            </div>
-
-            <p class="dim">Panna Cotta</p>
-
-            <p class="names">Vanilla Panna Cotta</p>
-
-            <p class="amount">$6.50</p>
-
-        </article>
-
-    </section>
-
-
+        <!-- Landmark: Product Grid -->
+        <section class="grid-container" aria-labelledby="productGridTitle">
+            <h2 id="productGridTitle">Products</h2>
+
+            <!-- Product 1: Waffle & Berries -->
+            <article class="grid-item" data-name="Waffle & Berries" data-price="6.50">
+                <img src="image-waffle-desktop.jpg" alt="Waffle & Berries" class="product">
+                <button class="cartButton">
+                    <img src="icon-add-to-cart.svg" alt="Add to Cart icon" class="addToCart">
+                    <span class="tap">Add to Cart</span>
+                </button>
+                <div class="counterContainer">
+                    <button class="minusButton">
+                        <img src="icon-decrement-quantity.svg" alt="Decrease quantity" class="but">
+                    </button>
+                    <span class="counterDisplay">1</span>
+                    <button class="plusButton">
+                        <img src="icon-increment-quantity.svg" alt="Increase quantity" class="tub">
+                    </button>
+                </div>
+                <p class="dim">Waffle</p>
+                <p class="names">Waffle with berries</p>
+                <p class="amount">$6.50</p>
+            </article>
+
+            <!-- Product 2: Creme Brulee -->
+            <article class="grid-item" data-name="Creme Brulee" data-price="7.00">
+                <img src="image-creme-brulee-desktop.jpg" alt="Creme Brulee" class="product">
+                <button class="cartButton">
+                    <img src="icon-add-to-cart.svg" alt="Add to Cart icon" class="addToCart">
+                    <span class="tap">Add to Cart</span>
+                </button>
+                <div class="counterContainer">
+                    <button class="minusButton">
+                        <img src="icon-decrement-quantity.svg" alt="Decrease quantity" class="but">
+                    </button>
+                    <span class="counterDisplay">1</span>
+                    <button class="plusButton">
+                        <img src="icon-increment-quantity.svg" alt="Increase quantity" class="tub">
+                    </button>
+                </div>
+                <p class="dim">Creme Brulee</p>
+                <p class="names">Vanilla Bean Creme Brulee</p>
+                <p class="amount">$7.00</p>
+            </article>
+
+            <!-- Product 3: Macaron Mix -->
+            <article class="grid-item" data-name="Macaron Mix" data-price="8.00">
+                <img src="image-macaron-desktop.jpg" alt="Macaron Mix" class="product">
+                <button class="cartButton">
+                    <img src="icon-add-to-cart.svg" alt="Add to Cart icon" class="addToCart">
+                    <span class="tap">Add to Cart</span>
+                </button>
+                <div class="counterContainer">
+                    <button class="minusButton">
+                        <img src="icon-decrement-quantity.svg" alt="Decrease quantity" class="but">
+                    </button>
+                    <span class="counterDisplay">1</span>
+                    <button class="plusButton">
+                        <img src="icon-increment-quantity.svg" alt="Increase quantity" class="tub">
+                    </button>
+                </div>
+                <p class="dim">Macaron</p>
+                <p class="names">Macaron Mix of Five</p>
+                <p class="amount">$8.00</p>
+            </article>
+
+            <!-- Product 4: Tiramisu -->
+            <article class="grid-item" data-name="Tiramisu" data-price="5.50">
+                <img src="image-tiramisu-desktop.jpg" alt="Tiramisu" class="product">
+                <button class="cartButton">
+                    <img src="icon-add-to-cart.svg" alt="Add to Cart icon" class="addToCart">
+                    <span class="tap">Add to Cart</span>
+                </button>
+                <div class="counterContainer">
+                    <button class="minusButton">
+                        <img src="icon-decrement-quantity.svg" alt="Decrease quantity" class="but">
+                    </button>
+                    <span class="counterDisplay">1</span>
+                    <button class="plusButton">
+                        <img src="icon-increment-quantity.svg" alt="Increase quantity" class="tub">
+                    </button>
+                </div>
+                <p class="dim">Tiramisu</p>
+                <p class="names">Classic Tiramisu</p>
+                <p class="amount">$5.50</p>
+            </article>
+
+            <!-- Product 5: Baklava -->
+            <article class="grid-item" data-name="Baklava" data-price="6.50">
+                <img src="image-baklava-desktop.jpg" alt="Baklava" class="product">
+                <button class="cartButton">
+                    <img src="icon-add-to-cart.svg" alt="Add to Cart icon" class="addToCart">
+                    <span class="tap">Add to Cart</span>
+                </button>
+                <div class="counterContainer">
+                    <button class="minusButton">
+                        <img src="icon-decrement-quantity.svg" alt="Decrease quantity" class="but">
+                    </button>
+                    <span class="counterDisplay">1</span>
+                    <button class="plusButton">
+                        <img src="icon-increment-quantity.svg" alt="Increase quantity" class="tub">
+                    </button>
+                </div>
+                <p class="dim">Baklava</p>
+                <p class="names">Pistachio Baklava</p>
+                <p class="amount">$6.50</p>
+            </article>
+
+            <!-- Product 6: Lemon Pie -->
+            <article class="grid-item" data-name="Lemon Pie" data-price="5.00">
+                <img src="image-meringue-desktop.jpg" alt="Lemon Pie" class="product">
+                <button class="cartButton">
+                    <img src="icon-add-to-cart.svg" alt="Add to Cart icon" class="addToCart">
+                    <span class="tap">Add to Cart</span>
+                </button>
+                <div class="counterContainer">
+                    <button class="minusButton">
+                        <img src="icon-decrement-quantity.svg" alt="Decrease quantity" class="but">
+                    </button>
+                    <span class="counterDisplay">1</span>
+                    <button class="plusButton">
+                        <img src="icon-increment-quantity.svg" alt="Increase quantity" class="tub">
+                    </button>
+                </div>
+                <p class="dim">Pie</p>
+                <p class="names">Lemon Meringue Pie</p>
+                <p class="amount">$5.00</p>
+            </article>
+
+            <!-- Product 7: Velvet Cake -->
+            <article class="grid-item" data-name="Velvet Cake" data-price="6.00">
+                <img src="image-velvet-desktop.jpg" alt="Velvet Cake" class="product">
+                <button class="cartButton">
+                    <img src="icon-add-to-cart.svg" alt="Add to Cart icon" class="addToCart">
+                    <span class="tap">Add to Cart</span>
+                </button>
+                <div class="counterContainer">
+                    <button class="minusButton">
+                        <img src="icon-decrement-quantity.svg" alt="Decrease quantity" class="but">
+                    </button>
+                    <span class="counterDisplay">1</span>
+                    <button class="plusButton">
+                        <img src="icon-increment-quantity.svg" alt="Increase quantity" class="tub">
+                    </button>
+                </div>
+                <p class="dim">Cake</p>
+                <p class="names">Red Velvet Cake</p>
+                <p class="amount">$6.00</p>
+            </article>
+
+            <!-- Product 8: Salted Brownie -->
+            <article class="grid-item" data-name="Salted Brownie" data-price="4.50">
+                <img src="image-brownie-desktop.jpg" alt="Salted Brownie" class="product">
+                <button class="cartButton">
+                    <img src="icon-add-to-cart.svg" alt="Add to Cart icon" class="addToCart">
+                    <span class="tap">Add to Cart</span>
+                </button>
+                <div class="counterContainer">
+                    <button class="minusButton">
+                        <img src="icon-decrement-quantity.svg" alt="Decrease quantity" class="but">
+                    </button>
+                    <span class="counterDisplay">1</span>
+                    <button class="plusButton">
+                        <img src="icon-increment-quantity.svg" alt="Increase quantity" class="tub">
+                    </button>
+                </div>
+                <p class="dim">Brownie</p>
+                <p class="names">Salted Caramel Brownie</p>
+                <p class="amount">$4.50</p>
+            </article>
+
+            <!-- Product 9: Panna Cotta -->
+            <article class="grid-item" data-name="Panna Cotta" data-price="5.50">
+                <img src="image-panna-desktop.jpg" alt="Panna Cotta" class="product">
+                <button class="cartButton">
+                    <img src="icon-add-to-cart.svg" alt="Add to Cart icon" class="addToCart">
+                    <span class="tap">Add to Cart</span>
+                </button>
+                <div class="counterContainer">
+                    <button class="minusButton">
+                        <img src="icon-decrement-quantity.svg" alt="Decrease quantity" class="but">
+                    </button>
+                    <span class="counterDisplay">1</span>
+                    <button class="plusButton">
+                        <img src="icon-increment-quantity.svg" alt="Increase quantity" class="tub">
+                    </button>
+                </div>
+                <p class="dim">Panna Cotta</p>
+                <p class="names">Vanilla Panna Cotta</p>
+                <p class="amount">$5.50</p>
+            </article>
+
+        </section>
     </main>
+
+    <!-- Link to external JavaScript -->
     <script src="test2.js"></script>
 </body>
 </html>
