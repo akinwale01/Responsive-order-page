@@ -6,10 +6,6 @@ letter-spacing: -1px;
 overflow-x: hidden;
 }
 
-#productGridTitle{
-    display: none;
-}
-
 h1{
 color: rgb(97, 9, 9);
 margin: 10px 20px;
@@ -188,7 +184,6 @@ display: none;
 #cartItems{
     font-size: 12px;
     margin-left: 30px;
-    border: 1px solid grey;
     border-left: none;
 border-right: none;
 border-top: none;
@@ -252,12 +247,10 @@ width: 100%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
-    border: 1px solid #ddd;
     padding: 20px;
     width: 350px;
     border-radius: 10px;
-    height: auto;
-    max-height: 800px;
+    max-height: 500px;
     text-align: center;
     z-index: 1000;
     margin-top: 50px;
@@ -293,8 +286,9 @@ color: rgba(66, 40, 6, 0.452);
 
 #orderDetails{
     margin-left: 0px;
-    border: 1px solid rgba(128, 128, 128, 0.24);
     border-left: none;
+    height: 200px;
+    overflow: scroll;
 border-right: none;
 border-top: none;
 margin-top: -30px;
@@ -312,7 +306,7 @@ border-right: 30px solid red;
 }
 
 #ploy{
-    font-size: 14px;
+    font-size: 15px;
 margin-right: 200px;
 color: rgb(41, 24, 6);
 font-weight: 600;
@@ -455,6 +449,14 @@ color: rgb(5, 99, 5);
     margin-left: -4px;
     }
 
+.cartButton:hover{
+border: 1px solid brown;
+}
+
+.brown-border {
+    border: 1px solid brown;
+}
+
     .tap{
         font-size: 12px;
         margin-left: 7px;
@@ -497,7 +499,7 @@ color: #500a0863;
         }
 
 
-        @media screen and (max-width: 900px) {
+        @media screen and (max-width: 800px) {
             /* Grid container for single-column layout */
             .grid-container {
                 display: grid;
@@ -509,29 +511,36 @@ color: #500a0863;
 
             /* Centering the product image, setting it to 50% width */
             .product {
-                width: 50%; /* Adjust width for responsiveness */
+                width: 100%; /* Adjust width for responsiveness */
+                height: 50%;
                 margin: 0 auto; /* Center horizontally */
                 display: block; /* Ensure it's block-level */
             }
 
             /* Center the Add to Cart button directly below the product */
             .cartButton {
-                width: 150px; /* Set button width */
-                margin: 20px 77.5px; /* Center it and space above and below */
-                display: block;
+                width: 50%; /* Set button width */
+                margin-top:-25px; /* Center it and space above and below */
+                margin-bottom: 20px;
+                display: inline;
+                margin-left: 60px;
+            }
+
+            .grid-item{
+                margin-bottom: 1px;
             }
 
             /* Center the counterContainer below the cartButton */
             .counterContainer {
-                margin: 20px auto 10px 70px; /* Add spacing above and center horizontally */
+                margin: -25px auto 10px 70px; /* Add spacing above and center horizontally */
                 display: none;
                 text-align: center;
             }
 
             /* Centering cart summary content */
             .cart-summary {
-                margin: 0 auto 50px auto; /* Center the summary and add bottom spacing */
-                width: 80%; /* Adjust width for smaller screens */
+                margin: 0 -10px 60px; /* Center the summary and add bottom spacing */
+                width: 100%; /* Adjust width for smaller screens */
                 text-align: center; /* Center text inside the cart-summary */
                 display: flex;
                 flex-direction: column; /* Stack content vertically */
@@ -539,18 +548,34 @@ color: #500a0863;
             }
 
             /* Centering text elements below Add to Cart */
-            .high, .dim, .names, .amount {
-                text-align: center; /* Center all text */
+             .dim, .names{
+                text-align: left; /* Center all text */
                 margin-left: 0;
                 margin-right: 0;
-                margin-bottom: 10px;
+                font-size: 25px;
             }
 
-            /* Responsive adjustments for cart details */
-            #cartDetails {
-                width: 100%; /* Take full width */
-                margin: 0 auto;
+            .amount {
+                text-align: left; /* Center all text */
+                margin-left: 0;
+                margin-right: 0;
+                font-size: 25px;
+                margin-top: 10px;
             }
+
+            #cartSummary.has-items {
+                display: flex;
+                flex-direction: column;  /* Stack content vertically if needed */
+                align-items: center;  /* Align items horizontally to the center */
+                margin: 0 -10px 60px;  /* Keep the margin for spacing */
+                width: 100%;  /* Make sure the width is 100% for small screens */
+                text-align: center;  /* Center text */
+            }
+
+            #cartDetails{
+                margin: 0 auto 60px;
+            }
+
 
             /* Center confirm order button */
             #confirmOrder {
@@ -568,10 +593,9 @@ color: #500a0863;
             .order-confirmation {
                 left: 50%; /* Horizontally center */
                 transform: translateX(-50%);
-                width: 50%;
+                width: 70%;
                 margin-top: -250px;
-                height: auto;
-                max-height: 800px;
+                height: 500px;
             }
 
             /* Responsive load display image */
@@ -587,8 +611,11 @@ color: #500a0863;
             }
 
             h1{
-                color: rgb(109, 21, 21);
-                text-align: center;
+                color: rgb(31, 4, 4);
+                text-align: left;
+                margin-left: 1;
+                font-size: 45px;
+                margin-bottom: 10px;
             }
 
 
@@ -621,28 +648,28 @@ color: #500a0863;
 
                 .detail-space{
                 border-right: 1px solid red;
-                margin-top: -20px;
+                margin-top: 5px;
 
                 }
 
                 #ploy{
-                    font-size: 12px;
-                margin-right:60px;
+                    font-size: 17px;
+                margin-right:160px;
                 color: rgb(41, 24, 6);
                 font-weight: 600;
 
                 }
 
                 #diary{
-                font-size: 10px;
+                font-size: 20px;
                 font-weight: 500;
                 color: rgb(82, 8, 8);
                 }
 
                 #tale{
-                    margin-right:114px;
-                    margin-top: 20px;
-                    font-size:10px;
+                    margin-right:210px;
+                    margin-top: 30px;
+                    font-size:15px;
                 }
 
                 #selection{
